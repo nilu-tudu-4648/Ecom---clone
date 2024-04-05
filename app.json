@@ -1,4 +1,5 @@
 {
   "name": "Ecom",
-  "displayName": "Ecom"
+  "displayName": "Ecom",
+  "navigationTypeTabs": true
 }

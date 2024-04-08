@@ -10,20 +10,19 @@ import TabNavigationStack from './TabNavigationStack';
 const Stack = createStackNavigator();
 
 function MainStack({auth:{isGuest}}) {
-
   return ( 
-    // isGuest ? 
-    // <NavigationContainer>
-    //   <Stack.Navigator screenOptions={{ 
-    //       headerShown: false,
-    //     }}>
-    //     {publicRoutes?.map((route, key) => {
-    //       const {name, component} = route;
-    //       return <Stack.Screen key={key} name={name} component={component} />;
-    //     })}
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    // :
+    isGuest ? 
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ 
+          headerShown: false,
+        }}>
+        {publicRoutes?.map((route, key) => {
+          const {name, component} = route;
+          return <Stack.Screen key={key} name={name} component={component} />;
+        })}
+      </Stack.Navigator>
+    </NavigationContainer>
+    :
     <TabNavigationStack />
   );
 }

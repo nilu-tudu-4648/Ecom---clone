@@ -53,7 +53,7 @@ function Cart({wishList:{wishItemNames},removeToWishList$, addToWishList$,remove
           <SwipeListView
           ListEmptyComponent={()=> <Empty  label={"Your Cart is empty"}/> }
           showsVerticalScrollIndicator={false}
-            keyExtractor={(item) => `${item.name}_${new Date().getTime()}`}
+            keyExtractor={(item,i) => i}
             ItemSeparatorComponent={() => <View style={{padding: scale(10)}} />}
             data={cartItems || []}
             renderItem={({item, index}) => <ItemCard item={item} />}

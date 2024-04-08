@@ -12,6 +12,7 @@ import SearchBox from '../../components/SearchBox';
 import TitleComp from '../../components/TitleComp';
  
 import ReduxWrapper from '../../utils/ReduxWrapper'; 
+import { simpleSDK } from '../../../App';
  
 function Home({getProducts$,getProductsList$, addToCart$, navigation}) {
   const nativeAdViewRef = useRef();
@@ -261,6 +262,7 @@ function Home({getProducts$,getProductsList$, addToCart$, navigation}) {
    
     getProductsList$()
   }, [ ]);  
+ 
    
   const RenderTitle = ({heading, rightLabel}) => {
     return <TitleComp heading={heading} rightLabel={rightLabel} />;

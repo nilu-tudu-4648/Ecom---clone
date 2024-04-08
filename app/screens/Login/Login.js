@@ -6,62 +6,52 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import Label from '../../components/Label';
 import {appColors, shadow} from '../../utils/appColors';
-import auth from '@react-native-firebase/auth';
 import {AlertHelper} from '../../utils/AlertHelper';
 import {CommonActions} from '@react-navigation/native';
-  
-import googleLogin from '../../services/googleLogin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
+import {simpleSDK} from '../../../App';
 
-function Login({getProductsList$,loginUser$, navigation}) {
-  const [credentials, setCredentials] = useState({});
-  const [isloading, setisloading] = useState(false)
+function Login({getProductsList$, loginUser$, navigation}) {
+  const [credentials, setCredentials] = useState({
+    email: 'n@gmail.com',
+    password: '123',
+  });
+  const [isloading, setisloading] = useState(false);
 
-  const onGoogleLogin  =async ()=>{
-   const {user,additionalUserInfo} =await googleLogin()
-  const {email,displayName,uid,photoURL} =user
-   if(additionalUserInfo?.isNewUser){
-    const {providerId,profile} =additionalUserInfo
-     //create new user and login
-    await writeData('users',{email , name: displayName  , uid ,photoURL,providerId,profile} )
-   } 
-   getProductsList$()
-   loginUser$({email , name: displayName  , uid ,photoURL} );
-  }
   const onLogin = async () => {
-    //auth().signOut()
     const {email, password} = credentials;
 
     try {
-        if(email && password){
-          setisloading(true)
-          const {user,additionalUserInfo} = await auth().signInWithEmailAndPassword(
-          email?.toLowerCase(),
-          password?.toLowerCase(),
+      if (email && password) {
+        setisloading(true);
+        loginUser$({email: email, name: 'Test user', uid: '123'});
+        await AsyncStorage.setItem(
+          'user',
+          JSON.stringify({email: email, name: 'Test user', uid: '123'}),
         );
-        console.log(user);
-        if (user?.uid) {
-          if(additionalUserInfo?.isNewUser){
-            const {providerId,profile} =additionalUserInfo
-          //create new user and login
-          await writeData('users',{email :user?.email, name: user?.displayName  , uid:user?.uid  ,photoURL : user?.photoURL  ,providerId,profile} )
-          }
-          loginUser$({email:user?.email, name: user?.displayName ? user?.displayName : "User", uid: user?.uid } );
-          getProductsList$()
-          AlertHelper.show('success', 'Welcome to Amusoftech');
-          navigation.navigate('Home');
-        }
-      }else{
-        setisloading(false)
+        await fetchData(email);
+        getProductsList$();
+        AlertHelper.show('success', 'Welcome to Amusoftech');
+      } else {
+        setisloading(false);
         AlertHelper.show('error', 'Email and password is required!!');
       }
-      
     } catch (error) {
       AlertHelper.show('error', 'Something went woring');
     }
   };
 
+  const fetchData = async userID => {
+    try {
+       await simpleSDK.createSession(userID);
+      await simpleSDK.initDeviceData();
+       await simpleSDK.initSensorsData();
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
   const onChangeText = (name, text) => {
     setCredentials({...credentials, [name]: text});
   };
@@ -109,7 +99,7 @@ function Login({getProductsList$,loginUser$, navigation}) {
         </View>
         <View style={{paddingVertical: scale(10)}}>
           <CustomInput
-            onChangeText={(text) => onChangeText('email', text)}
+            onChangeText={text => onChangeText('email', text)}
             keyboardType="email-address"
             label="Email"
             placeholder="john@doe.com"
@@ -117,7 +107,7 @@ function Login({getProductsList$,loginUser$, navigation}) {
         </View>
         <View style={{paddingVertical: scale(10)}}>
           <CustomInput
-            onChangeText={(text) => onChangeText('password', text)}
+            onChangeText={text => onChangeText('password', text)}
             secureTextEntry
             label="Password"
             placeholder="Password"
@@ -139,7 +129,7 @@ function Login({getProductsList$,loginUser$, navigation}) {
             }}
           />
         </Pressable>
-        <CustomButton isLoading={isloading}  onPress={onLogin} label="Sign in" />
+        <CustomButton isLoading={isloading} onPress={onLogin} label="Sign in" />
       </View>
       <View
         style={{
@@ -156,12 +146,12 @@ function Login({getProductsList$,loginUser$, navigation}) {
         />
       </View>
       <CustomButton
-        onPress={onGoogleLogin}
+        // onPress={onGoogleLogin}
         icon="google"
         label="Sign in"
         unFilled
       />
-      <CustomButton    onPress={onLogin} icon="twitter" label="Sign in" unFilled />
+      <CustomButton onPress={onLogin} icon="twitter" label="Sign in" unFilled />
     </Container>
   );
 }

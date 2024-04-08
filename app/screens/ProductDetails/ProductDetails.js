@@ -35,7 +35,7 @@ function ProductDetails({wishList:{wishItemNames}, cart:{ cartItems },addToWishL
   };
   return (
     <>
-      <Container bodyStyle={{paddingHorizontal: scale(0)}} isScrollable>
+      <Container bodyStyle={{paddingHorizontal: scale(0)}}>
         <View>
           <ImageBackground
             style={{height: scale(400), width: '100%'}}

@@ -15,6 +15,7 @@ export default function (state = initialState, action) {
     case LOG_OUT:
       return {
         ...state,
+        isGuest:true,
         user: {},
       };
 

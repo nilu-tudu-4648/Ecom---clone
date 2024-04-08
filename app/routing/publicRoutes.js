@@ -1,7 +1,7 @@
 import Login from '../screens/Login/Login';
 import SignUp from '../screens/SignUp/SignUp';
 import Verification from '../screens/Verification/Verification';
-import Welcome from '../screens/Welcome';
+import Welcome from '../screens/Welcome/Welcome';
 export const publicRoutes = [
   /* {
     name: 'Welcome',

@@ -22,30 +22,12 @@ Ionicons.loadFont()
 FontAwesome.loadFont()
 Feather.loadFont()
 MaterialCommunityIcons.loadFont()
-const App: () => React$Node = () => {
+const apiKey = '9a60f01e9b7d2d5d37a1b134241311fd7dfdbc38';
+export const simpleSDK = new RaptorX(apiKey);
+const App= () => {
   const {persistor, store} = storePre;
  
-  useEffect(() => {
-    const fetchData = async () => {
-      const apiKey = '9a60f01e9b7d2d5d37a1b134241311fd7dfdbc38';
-      const simpleSDK = new RaptorX(apiKey);
-      
-      try {
-        const data = await simpleSDK.createSession();
-        console.log('API response:', data);
-        const initDeviceData = await simpleSDK.initDeviceData();
-        console.log({initDeviceData})
-        const initSensorsData = await simpleSDK.initSensorsData();
-        console.log({initSensorsData})
-        // const navigationCapture = await simpleSDK.navigationCapture();
-        // console.log('APP.js response:', navigationCapture);
-      } catch (error) {
-        console.error('Error:', error.message);
-      }
-    };
-
-    fetchData();
-  }, []);
+  
 
   return (
     <Provider store={store}>

@@ -6537,10 +6537,10 @@ range-parser@~1.2.1:
   resolved "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-raptorx-react-native-sd@^1.0.29:
-  version "1.0.29"
-  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.29.tgz"
-  integrity sha512-ES3BXTISLbU4ub4JwvG0l/8qGKD4oMU+7KLqmlsV+sv7K+yg9jB64SfRH14t+N5nYVLNdd0+AgWOAK1c2qxx4g==
+raptorx-react-native-sd@^1.0.31:
+  version "1.0.31"
+  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.31.tgz"
+  integrity sha512-JnekC0/9JmMWE9/533M+X5fQOwqXjBhMRUi8SP0JOwYYoWmrILgSkU6Z1LMcVUzLNMkZzZy0ypFP2ChpCynFUQ==
   dependencies:
     "@fingerprintjs/fingerprintjs-pro-react-native" "^3.0.1"
     "@react-native-community/geolocation" "^3.2.0"

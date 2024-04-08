@@ -168,14 +168,14 @@ export const profileKeys=[
     icon:"credit-card"
   },
   {
-    lebel:"Notifications",
-    icon:"bell"
-  },
-  {
     lebel:"Sign Out",
     icon:"log-out",
     route: "Login"
-  }
+  },
+  {
+    lebel:"Notifications",
+    icon:"bell"
+  },
 ]
 
 export const orderList =[

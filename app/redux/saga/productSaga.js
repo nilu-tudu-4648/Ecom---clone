@@ -22,8 +22,7 @@ export function* workerGetProductsList(action) {
       const category =action.payload
       const URL=`${PRODUCTS_LIST}`
      // console.log({URL});
-      const result = yield RequestMake(URL)      
-      console.log({result});
+      const result = yield RequestMake(URL)    
       yield put({ type:SET_PRODUCTS_LIST, payload: result })
   }
 }

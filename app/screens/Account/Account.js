@@ -7,19 +7,25 @@ import {appColors} from '../../utils/appColors';
 import Label from '../../components/Label';
 import {profileKeys} from '../../utils/MockData';
 import AvatarImage from '../../components/AvatarImage' 
-import auth from '@react-native-firebase/auth';
-//auth().signOut()
-export default function Account({navigation}) {
+import ReduxWrapper from '../../utils/ReduxWrapper';
+import { simpleSDK } from '../../../App';
+ function Account({navigation,logoutUser$}) {
 
-  const onLogout = ()=>{ 
-     auth().signOut()
+  const onLogout = async()=>{ 
+    logoutUser$()
+    simpleSDK.clearSession()
+    try {
+      await simpleSDK.initSensorsData();
+    } catch (error) {
+     console.log(error) 
+    }
   }
   const ItemCard = ({item}) => {
     const {lebel, icon,isNew,route} = item;
     return (
       <Pressable onPress={() =>{
         route=="Login"&& onLogout()
-        route&& navigation.navigate(route) 
+        // route&& navigation.navigate(route) 
         }} style={styles.itemContainer}>
         <Pressable  style={styles.iconContainer}>
           <Feather name={icon} size={scale(22)}color={appColors.black}  />
@@ -73,3 +79,4 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.lightGreen,
   },
 });
+export default ReduxWrapper(Account);

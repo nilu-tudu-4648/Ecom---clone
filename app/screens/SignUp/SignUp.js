@@ -9,7 +9,7 @@ import {appColors, shadow} from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/Feather';
 import auth from '@react-native-firebase/auth';
  import {AlertHelper} from '../../utils/AlertHelper'
-export default function index({navigation}) {
+export default function SignUp({navigation}) {
   const [userInfo, setUserInfo] = useState({});
   const onChnage = (name, text) => {
     setUserInfo({...userInfo, [name]: text});

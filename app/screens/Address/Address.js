@@ -5,7 +5,7 @@ import ScreenHeader from '../../components/ScreenHeader'
 import SelectAble from '../../components/SelectAble'
 import CustomButton from '../../components/CustomButton'
 import { scale } from 'react-native-size-matters'
-export default function index() {
+export default function Address() {
     return (
         <>
         <Container isScrollable>

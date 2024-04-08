@@ -9,7 +9,7 @@ import {profileKeys} from '../../utils/MockData';
 import AvatarImage from '../../components/AvatarImage' 
 import auth from '@react-native-firebase/auth';
 //auth().signOut()
-export default function index({navigation}) {
+export default function Account({navigation}) {
 
   const onLogout = ()=>{ 
      auth().signOut()

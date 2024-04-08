@@ -7,7 +7,7 @@ import {scale} from 'react-native-size-matters';
 import {appColors} from '../../utils/appColors';
 import Label from '../../components/Label';
 import CustomButton from '../../components/CustomButton';
-export default function index({navigation}) {
+export default function Checkout({navigation}) {
   return (
     <KeyboardAvoidingView style={{flex:1}}>
       <Container

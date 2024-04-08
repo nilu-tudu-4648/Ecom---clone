@@ -7,7 +7,7 @@ import SearchBox from '../../components/SearchBox';
 import TitleComp from '../../components/TitleComp';
 import { recentSearches } from '../../utils/MockData';
 
-export default function index({navigation}) {
+export default function Search({navigation}) {
   console.log({navigation});
   return (
     <Container>

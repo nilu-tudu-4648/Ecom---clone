@@ -19,13 +19,13 @@ export default function TabNavigationStack({isAuth}) {
     <NavigationContainer>
       <Tab.Navigator
       screenOptions={{
-        headerShown:false
+        headerShown:false,
+
+        activeTintColor: appColors.primary,
+        inactiveTintColor: appColors.darkGray,
+        
       }}
-        tabBarOptions={{
-           
-          activeTintColor: appColors.primary,
-          inactiveTintColor: appColors.darkGray,
-        }}>
+  >
         { routes?.map((route, key) => {
           const {name, component, options} = route;
           return (

@@ -1,6 +1,6 @@
-import Login from '../screens/Login';
-import SignUp from '../screens/SignUp';
-import Verification from '../screens/Verification';
+import Login from '../screens/Login/Login';
+import SignUp from '../screens/SignUp/SignUp';
+import Verification from '../screens/Verification/Verification';
 import Welcome from '../screens/Welcome';
 export const publicRoutes = [
   /* {

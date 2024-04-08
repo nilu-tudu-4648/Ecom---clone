@@ -1,15 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+
+import RaptorX from 'raptorx-react-native-sd'
 
 import React ,{useEffect,useState}from 'react';
 import MainStack from './app/routing/MainStack';
 import {Provider} from 'react-redux';
-import {StatusBar} from 'react-native';
+import {StatusBar,StyleSheet} from 'react-native';
 import storePre from './app/redux/store';
 import DropdownAlert from 'react-native-dropdownalert';
 import {AlertHelper} from './app/utils/AlertHelper';
@@ -30,24 +25,58 @@ MaterialCommunityIcons.loadFont()
 const App: () => React$Node = () => {
   const {persistor, store} = storePre;
  
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiKey = '9a60f01e9b7d2d5d37a1b134241311fd7dfdbc38';
+      const simpleSDK = new RaptorX(apiKey);
+      
+      try {
+        const data = await simpleSDK.createSession();
+        console.log('API response:', data);
+        const initDeviceData = await simpleSDK.initDeviceData();
+        console.log({initDeviceData})
+        const initSensorsData = await simpleSDK.initSensorsData();
+        console.log({initSensorsData})
+        // const navigationCapture = await simpleSDK.navigationCapture();
+        // console.log('APP.js response:', navigationCapture);
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        {/* navigationTypeTabs ? <TabNavigationStack/> : <MainStack /> */} 
-        <MainStack />
-        <DropdownAlert
-          defaultContainer={{
-            padding: 8,
-            paddingTop: StatusBar.currentHeight,
-            flexDirection: 'row',
-          }}
-          ref={(ref) => AlertHelper.setDropDown(ref)}
-          onClose={() => AlertHelper.invokeOnClose()}
-        />
-      </PersistGate>
-    </Provider>
-  );
+    <PersistGate loading={null} persistor={persistor}>
+      {/* navigationTypeTabs ? <TabNavigationStack/> : <MainStack /> */} 
+      <MainStack />
+      <DropdownAlert
+        defaultContainer={{
+          padding: 8,
+          paddingTop: StatusBar.currentHeight,
+          flexDirection: 'row',
+        }}
+        ref={(ref) => AlertHelper.setDropDown(ref)}
+        onClose={() => AlertHelper.invokeOnClose()}
+      />
+    </PersistGate>
+  </Provider>
+);
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 10,
+  },
+});
 
 export default App;

@@ -12,7 +12,7 @@ import BottomButtons from '../../components/BottomButtons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 
-function index({products:{products}, productList,navigation, route: {params}}) {
+function Category({products:{products}, productList,navigation, route: {params}}) {
 
    const [refreshing, setRefreshing] = useState(false);
    const onRefresh = ()=>{
@@ -105,4 +105,4 @@ function index({products:{products}, productList,navigation, route: {params}}) {
     </>
   );
 }
-export default ReduxWrapper(index)
+export default ReduxWrapper(Category)

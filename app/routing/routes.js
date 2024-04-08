@@ -3,26 +3,26 @@
  * @description List of routes for Tabs Navigator and Stack navigator, Along addational  Option for Tabs
  */
 import React from 'react';
-import Home from '../screens/Home';
-import ProductDetails from '../screens/ProductDetails';
+import Home from '../screens/Home/Home';
+import ProductDetails from '../screens/ProductDetails/ProductDetails';
 
-import WriteReview from '../screens/WriteReview';
-import Cart from '../screens/Cart';
-import Checkout from '../screens/Checkout';
-import Filters from '../screens/Filter';
-import Search from '../screens/Search';
+import WriteReview from '../screens/WriteReview/WriteReview';
+import Cart from '../screens/Cart/Cart';
+import Checkout from '../screens/Checkout/Checkout';
+import Filters from '../screens/Filter/Filter';
+import Search from '../screens/Search/Search';
 import CheckoutDelivery from '../screens/Checkout/CheckoutDelivery';
 import CheckOutSteper from '../screens/Checkout/CheckOutSteper';
 import Summary from '../screens/Summary';
-import Account from '../screens/Account';
-import WishList from '../screens/WishList';
+import Account from '../screens/Account/Account';
+import WishList from '../screens/WishList/WishList';
 
-import Orders from '../screens/Orders';
-import Address from '../screens/Address';
+import Orders from '../screens/Orders/Orders';
+import Address from '../screens/Address/Address';
 import Feather from 'react-native-vector-icons/dist/Feather';
 import {appColors} from '../utils/appColors';
 import {scale} from 'react-native-size-matters';
-import Category from '../screens/Category';
+import Category from '../screens/Category/Category';
 
 export const RoutesList = [
  

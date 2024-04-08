@@ -17,7 +17,7 @@ import paymentHelper from '../../services/paymentHelper';
 import ReduxWrapper from '../../utils/ReduxWrapper';
  
 
-function index(props) { 
+function Summary(props) { 
   const {auth: {user}, navigation} = props
   console.log({user});
 
@@ -121,4 +121,4 @@ function index(props) {
   );
 }
 
-export default ReduxWrapper(index);
+export default ReduxWrapper(Summary);

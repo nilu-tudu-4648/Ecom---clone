@@ -7,7 +7,7 @@ import CustomButton from '../../components/CustomButton';
 import Label from '../../components/Label';
 import {appColors, shadow} from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/Feather';
-export default function index({navigation}) {
+export default function Verification({navigation}) {
   return (
     <Container isScrollable>
       <Pressable onPress={()=>navigation.goBack()} style={{marginTop: scale(30)}}>

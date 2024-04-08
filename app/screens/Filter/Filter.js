@@ -8,7 +8,7 @@ import { scale } from 'react-native-size-matters'
 import { appColors } from '../../utils/appColors'
 import BottomButtons from '../../components/BottomButtons'
 
-export default function index({navigation}) {
+export default function Filter({navigation}) {
     const [colorFilter, setColorFilter] = useState(false)
     return (
         <>

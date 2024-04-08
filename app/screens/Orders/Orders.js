@@ -7,7 +7,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import {appColors, shadow} from '../../utils/appColors';
 import {orderList} from '../../utils/MockData';
 
-export default function index({navigation}) {
+export default function Orders({navigation}) {
   const OrderCard = ({item}) => {
     const {label, amount, status, color} = item;
     return (

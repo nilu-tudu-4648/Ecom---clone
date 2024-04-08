@@ -14,7 +14,7 @@ import {connect} from 'react-redux';
 import {addToCart} from '../../redux/cartAction';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 
-function index({wishList:{wishItemNames}, cart:{ cartItems },addToWishList$,addToCart$, navigation,route:{params}}) {
+function ProductDetails({wishList:{wishItemNames}, cart:{ cartItems },addToWishList$,addToCart$, navigation,route:{params}}) {
    
   const {id,title, name,description, detail, price, size, color, image, isFav,rating} = params.item;
   //console.warn({cartItems});
@@ -133,7 +133,7 @@ const mapDispatchToProps = {
   addToCart$: addToCart,
 }; 
 export default connect(mapStateToProps, mapDispatchToProps)(index); */
-export default  ReduxWrapper(index)
+export default  ReduxWrapper(ProductDetails)
 
 const styles = StyleSheet.create({
   sizeContainer: {

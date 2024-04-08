@@ -13,7 +13,7 @@ export default function CheckOutItem({ renderBagge, hideSteper,noBg, image, name
         backgroundColor:  noBg ?  'transparent':   appColors.lightGray,
         //borderRadius: scale(  5 )
       }}>
-      <Image
+      {/* <Image
         style={{
           height: scale(130),
           width: scale(130),
@@ -21,7 +21,7 @@ export default function CheckOutItem({ renderBagge, hideSteper,noBg, image, name
           //backgroundColor:appColors.darkGray
         }}
         source={{uri:image} }
-      />
+      /> */}
 
       <View
         style={{

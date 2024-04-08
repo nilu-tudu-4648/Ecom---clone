@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import auth from '@react-native-firebase/auth';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 
-function Index({loginUser$,navigation}) {
+function Welcome({loginUser$,navigation}) {
     const [initializing, setInitializing] = useState(true);
     const [user, setUser] = useState();    
     function onAuthStateChanged(user) { 
@@ -31,4 +31,4 @@ function Index({loginUser$,navigation}) {
     )
 }
 
-export default ReduxWrapper(Index)
+export default ReduxWrapper(Welcome)

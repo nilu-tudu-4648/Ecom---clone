@@ -14,7 +14,7 @@ import googleLogin from '../../services/googleLogin';
 import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 
-function index({getProductsList$,loginUser$, navigation}) {
+function Login({getProductsList$,loginUser$, navigation}) {
   const [credentials, setCredentials] = useState({});
   const [isloading, setisloading] = useState(false)
 
@@ -166,4 +166,4 @@ function index({getProductsList$,loginUser$, navigation}) {
   );
 }
 
-export default ReduxWrapper(index);
+export default ReduxWrapper(Login);

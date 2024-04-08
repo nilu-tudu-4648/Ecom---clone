@@ -9,7 +9,7 @@ import CustomButton from '../../components/CustomButton';
 import {appColors} from '../../utils/appColors';
 import StarRating from 'react-native-star-rating';
 import Feather from 'react-native-vector-icons/Feather';
-export default function index({navigation,route:{params}}) {
+export default function WriteReview({navigation,route:{params}}) {
     const {title}  =params
   const [activeCount, setActiveCount] = useState(3);
   return (

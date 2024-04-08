@@ -15,7 +15,7 @@ import ReduxWrapper from '../../utils/ReduxWrapper';
 import { APP_CURRENY } from '../../utils/appConfig';
 import Empty from '../../components/Empty';
 
-function index({wishList:{wishItemNames},removeToWishList$, addToWishList$,removeFromCart$,cart:{cartItems} ,navigation}) {
+function Cart({wishList:{wishItemNames},removeToWishList$, addToWishList$,removeFromCart$,cart:{cartItems} ,navigation}) {
 
  const getAmount = ()=>{
    let amount =0
@@ -118,4 +118,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(index); */
-export default ReduxWrapper(index)
+export default ReduxWrapper(Cart)

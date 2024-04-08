@@ -8,7 +8,7 @@ import Label from '../../components/Label'
 import { appColors } from '../../utils/appColors'
 import { bestSellersList } from '../../utils/MockData'
 
-export default function index() {
+export default function WishList() {
     const renderBagge= ()=>{
         return <View style={{  backgroundColor:appColors.primary, padding:scale(10), justifyContent:'center', alignItems:'center', borderRadius:scale(3)}}>
              

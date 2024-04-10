@@ -12,9 +12,9 @@ import SearchBox from '../../components/SearchBox';
 import TitleComp from '../../components/TitleComp';
  
 import ReduxWrapper from '../../utils/ReduxWrapper'; 
-import { simpleSDK } from '../../../App';
- 
-function Home({getProducts$,getProductsList$, addToCart$, navigation}) {
+import {  useNavigation } from '@react-navigation/native';
+import RaptorX from 'raptorx-react-native-sd'
+function Home({getProducts$,getProductsList$, addToCart$}) {
   const nativeAdViewRef = useRef();
   const products = [
     {
@@ -262,8 +262,14 @@ function Home({getProducts$,getProductsList$, addToCart$, navigation}) {
    
     getProductsList$()
   }, [ ]);  
- 
-   
+  const navigation = useNavigation();
+  const apiKey = '9a60f01e9b7d2d5d37a1b134241311fd7dfdbc38';
+  const simpleSDK = new RaptorX(apiKey, navigation); // Pass navigation object during initialization
+
+  useEffect(() => {
+    // Call navigation capture method inside useEffect
+    simpleSDK.navigationCapture();
+  }, []);
   const RenderTitle = ({heading, rightLabel}) => {
     return <TitleComp heading={heading} rightLabel={rightLabel} />;
   };

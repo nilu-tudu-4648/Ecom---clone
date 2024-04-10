@@ -2005,7 +2005,7 @@
   resolved "https://registry.npmjs.org/@react-navigation/elements/-/elements-1.3.30.tgz"
   integrity sha512-plhc8UvCZs0UkV+sI+3bisIyn78wz9O/BiWZXpounu72k/R/Sj5PuZYFJ1fi6psvriUveMCGh4LeZckAZu2qiQ==
 
-"@react-navigation/native@^6.0.0", "@react-navigation/native@^6.1.17", "@react-navigation/native@^6.1.9":
+"@react-navigation/native@^6.0.0", "@react-navigation/native@^6.1.17":
   version "6.1.17"
   resolved "https://registry.npmjs.org/@react-navigation/native/-/native-6.1.17.tgz"
   integrity sha512-mer3OvfwWOHoUSMJyLa4vnBH3zpFmCwuzrBPlw7feXklurr/ZDiLjLxUScOot6jLRMz/67GyilEYMmP99LL0RQ==
@@ -6537,10 +6537,10 @@ range-parser@~1.2.1:
   resolved "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-raptorx-react-native-sd@^1.0.31:
-  version "1.0.31"
-  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.31.tgz"
-  integrity sha512-JnekC0/9JmMWE9/533M+X5fQOwqXjBhMRUi8SP0JOwYYoWmrILgSkU6Z1LMcVUzLNMkZzZy0ypFP2ChpCynFUQ==
+raptorx-react-native-sd@^1.0.35:
+  version "1.0.35"
+  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.35.tgz"
+  integrity sha512-KE6QFOf6nE5nSsn89ldv4G/uFeJs4TnqZbS66uLw7UKH/nHlPdm98dwgR/auACbGAmwuCqHfLW5azBhc0sMBHQ==
   dependencies:
     "@fingerprintjs/fingerprintjs-pro-react-native" "^3.0.1"
     "@react-native-community/geolocation" "^3.2.0"

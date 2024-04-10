@@ -128,12 +128,12 @@ export const deliveryTypes = [
       'Place your order before 6pm and your items will be delivered the next day',
     selected: false,
   },
-  {
-    label: 'Nominated Delivery',
-    subLabel:
-      'Pick a particular date from the calendar and order will be delivered on selected date',
-    selected: false,
-  },
+  // {
+  //   label: 'Nominated Delivery',
+  //   subLabel:
+  //     'Pick a particular date from the calendar and order will be delivered on selected date',
+  //   selected: false,
+  // },
 ];
 export const paymentMethods = ['dollar-sign', 'credit-card', 'layout'];
 

@@ -14,11 +14,6 @@ import { simpleSDK } from '../../../App';
   const onLogout = async()=>{ 
     logoutUser$()
     simpleSDK.clearSession()
-    try {
-      await simpleSDK.initSensorsData();
-    } catch (error) {
-     console.log(error) 
-    }
   }
   const ItemCard = ({item}) => {
     const {lebel, icon,isNew,route} = item;

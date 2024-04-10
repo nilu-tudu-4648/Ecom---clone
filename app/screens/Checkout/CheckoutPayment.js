@@ -18,7 +18,7 @@ export default function CheckoutPayment() {
     );
   };
   return (
-    <View style={{paddingVertical:scale(50)}}>
+    <View style={{paddingVertical:scale(10)}}>
       <View style={{flexDirection: 'row'}}>
           <FlatList   showsHorizontalScrollIndicator={false} ItemSeparatorComponent={()=> <View style={{padding:scale(5)}} /> } horizontal data={paymentMethods}  renderItem={({item,index})=> <SquareCard  item={item}/>} /> 
        

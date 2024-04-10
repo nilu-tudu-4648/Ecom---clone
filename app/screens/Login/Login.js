@@ -1,6 +1,11 @@
-import React, {useState} from 'react';
-import {View, Text, Pressable} from 'react-native';
-import {scale} from 'react-native-size-matters';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet, // Assuming you have StyleSheet imported for styles
+} from 'react-native';
+import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
@@ -9,11 +14,11 @@ import {appColors, shadow} from '../../utils/appColors';
 import {AlertHelper} from '../../utils/AlertHelper';
 import {CommonActions} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import writeData from '../../utils/writeData';
+import writeData from '../../utils/writeData'; // Assuming writeData function is defined
 import ReduxWrapper from '../../utils/ReduxWrapper';
-import {simpleSDK} from '../../../App';
+import { simpleSDK } from '../../../App';
 
-function Login({getProductsList$, loginUser$, navigation}) {
+function Login({ getProductsList$, loginUser$, navigation }) {
   const [credentials, setCredentials] = useState({
     email: 'n@gmail.com',
     password: '123',
@@ -21,39 +26,41 @@ function Login({getProductsList$, loginUser$, navigation}) {
   const [isloading, setisloading] = useState(false);
 
   const onLogin = async () => {
-    const {email, password} = credentials;
+    const { email, password } = credentials;
 
     try {
       if (email && password) {
         setisloading(true);
-        loginUser$({email: email, name: 'Test user', uid: '123'});
+        loginUser$({ email: email, name: 'Test user', uid: '123' }); // Assuming loginUser$ dispatches an action
         await AsyncStorage.setItem(
           'user',
-          JSON.stringify({email: email, name: 'Test user', uid: '123'}),
+          JSON.stringify({ email: email, name: 'Test user', uid: '123' }),
         );
         await fetchData(email);
-        getProductsList$();
+        getProductsList$(); // Assuming getProductsList$ dispatches an action
         AlertHelper.show('success', 'Welcome to Amusoftech');
       } else {
         setisloading(false);
         AlertHelper.show('error', 'Email and password is required!!');
       }
     } catch (error) {
-      AlertHelper.show('error', 'Something went woring');
+      AlertHelper.show('error', 'Something went wrong');
     }
   };
 
-  const fetchData = async userID => {
+  const fetchData = async (userID) => {
     try {
-       await simpleSDK.createSession(userID);
+      await simpleSDK.createSession(userID);
       await simpleSDK.initDeviceData();
-       await simpleSDK.initSensorsData();
+      await simpleSDK.navigationCapture();
+      await simpleSDK.initSensorsData();
     } catch (error) {
       console.error('Error:', error.message);
     }
   };
+
   const onChangeText = (name, text) => {
-    setCredentials({...credentials, [name]: text});
+    setCredentials({ ...credentials, [name]: text });
   };
 
   return (
@@ -111,7 +118,6 @@ function Login({getProductsList$, loginUser$, navigation}) {
             secureTextEntry
             label="Password"
             placeholder="Password"
-            // value="*******"
           />
         </View>
         <Pressable

@@ -276,11 +276,9 @@ function Home({getProducts$,getProductsList$, addToCart$}) {
   const ProductCard = ({item}) => {
     return <Product navigation={navigation} item={item} />;
   };
-  const onPress = () => {
-    console.warn('i am clicked');
-  };
+
   return (
-    <Container isScrollable style={styles.container}> 
+    <Container isScrollable style={styles.container} bodyStyle={{marginVertical:scale(8)}}> 
       <SearchBox onFoucs={() => navigation.navigate('Search')} /> 
       <View style={{paddingVertical: scale(30)}}>
         <RenderTitle heading="Categories" />

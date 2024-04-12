@@ -53,9 +53,8 @@ const AvatarImage = ({
             ]}
             {...rest}
         >
-            {typeof source === 'function' && source({ size })}
-            {typeof source !== 'function' && (
-                <Image
+            {typeof source === 'function' ? source({ size }) : (
+                source && <Image
                     source={source}
                     style={{ width: size, height: size, borderRadius: size / 2 }}
                 />
@@ -66,4 +65,4 @@ const AvatarImage = ({
 
 AvatarImage.displayName = 'Avatar.Image';
 
-export default AvatarImage
+export default AvatarImage;

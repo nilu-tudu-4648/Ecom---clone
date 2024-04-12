@@ -8,9 +8,9 @@ export default function Badge({label}) {
   return (
     <View
       style={{
-        margin: scale(5),
-        paddingHorizontal: scale(20),
-        height: scale(40),
+        margin: scale(3),
+        paddingHorizontal: scale(15),
+        height: scale(35),
         backgroundColor: appColors.lightGray,
         justifyContent: 'center',
         alignItems: 'center',

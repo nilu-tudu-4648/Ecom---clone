@@ -1,12 +1,14 @@
 package com.ecom
 
+import android.opengl.EGL14
+import android.opengl.EGLDisplay
+
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
-import android.app.ActivityManager
-import android.content.Context
-import android.opengl.GLES10
 import com.facebook.react.bridge.Callback
+import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.WritableNativeMap
 
 class GPUModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
@@ -16,14 +18,19 @@ class GPUModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
     @ReactMethod
     fun getGPUDetails(callback: Callback) {
-        val activityManager = reactApplicationContext.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val configurationInfo = activityManager.deviceConfigurationInfo
+        try {
+            val display: EGLDisplay = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY)
 
-        val glVersion = configurationInfo.glEsVersion
-        val renderer = GLES10.glGetString(GLES10.GL_RENDERER)
-        val vendor = GLES10.glGetString(GLES10.GL_VENDOR)
+            val gpuInfo = WritableNativeMap()
+            gpuInfo.putString("vendor", EGL14.eglQueryString(display, EGL14.EGL_VENDOR))
+            gpuInfo.putString("version", EGL14.eglQueryString(display, EGL14.EGL_VERSION))
+            gpuInfo.putString("renderer", EGL14.eglQueryString(display, 12373)) // EGL_RENDERER value
 
-        val gpuInfo = "OpenGL Version: $glVersion\nRenderer: $renderer\nVendor: $vendor"
-        callback.invoke(null, gpuInfo)
+            callback.invoke(null, gpuInfo)
+        } catch (e: Exception) {
+            val error = WritableNativeMap()
+            error.putString("message", "Error getting GPU details: " + e.message)
+            callback.invoke(error, null)
+        }
     }
 }

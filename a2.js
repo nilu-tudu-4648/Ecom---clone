@@ -44,3 +44,37 @@ const App = () => {
 };
 
 export default App;
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button } from 'react-native';
+import { NativeModules } from 'react-native';
+
+const { GPUModule } = NativeModules;
+
+const App = () => {
+  const [gpuInfo, setGpuInfo] = useState(null);
+
+  useEffect(() => {
+    GPUModule.getGPUDetails((error, info) => {
+      if (error) {
+        console.error(error.message);
+      } else {
+        setGpuInfo(info);
+      }
+    });
+  }, []);
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {gpuInfo ? (
+        <>
+          <Text>GPU Vendor: {gpuInfo.vendor}</Text>
+          <Text>GPU Version: {gpuInfo.version}</Text>
+          <Text>GPU Renderer: {gpuInfo.renderer}</Text>
+        </>
+      ) : (
+        <Text>Loading GPU information...</Text>
+      )}
+      <Button title="Get GPU Details" onPress={() => GPUModule.getGPUDetails()} />
+    </View>)
+}
+export default App

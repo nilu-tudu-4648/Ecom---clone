@@ -20,7 +20,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.20",
     "js-base64": "^3.7.7",
-    "raptorx-react-native-sd": "^1.0.36",
+    "raptorx-react-native-sd": "^1.0.39",
     "react": "18.2.0",
     "react-native": "0.73.6",
     "react-native-device-info": "^10.13.1",

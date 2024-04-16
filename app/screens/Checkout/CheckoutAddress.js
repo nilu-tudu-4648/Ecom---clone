@@ -3,8 +3,8 @@ import { View, Text } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import CheckBox from '../../components/CheckBox';
 import Label from '../../components/Label';
-import CustomInput from '../../components/CustomInput';
-import  {getElementInfo}  from '../../utils/useListner'; // Import the getElementInfo function
+import CustomInput from '../../components/CustomInput';// Import the getElementInfo function
+import { simpleSDK } from '../../../App';
 
 export default function CheckoutAddress() {
   const [street1, setStreet1] = useState('');
@@ -13,10 +13,14 @@ export default function CheckoutAddress() {
   const [state, setState] = useState('Punjab');
   const [country, setCountry] = useState('India');
 
-  const handleInputChange = (elementId, value) => {
+  const handleInputChange = async(elementId, value) => {
+    try {
+      const elementInfo =await simpleSDK.formCapture(elementId, value);
+      console.log('Element Info:', elementInfo);
+    } catch (error) {
+      console.log(error)
+    }
     // Call the getElementInfo function and do something with the result
-    const elementInfo = getElementInfo(elementId, value);
-    console.log('Element Info:', elementInfo);
   };
 
   return (

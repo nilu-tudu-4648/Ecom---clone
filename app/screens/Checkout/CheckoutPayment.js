@@ -8,6 +8,7 @@ import CustomInput from '../../components/CustomInput';
 import CheckBox from '../../components/CheckBox';
 import Label from '../../components/Label';
 import { getElementInfo } from '../../utils/useListner'; // Import the getElementInfo function
+import { simpleSDK } from '../../../App';
 
 export default function CheckoutPayment() {
   const [selectedMethod, setSelectedMethod] = useState("credit-card");
@@ -17,9 +18,9 @@ export default function CheckoutPayment() {
   const [cvv, setCvv] = useState("");
   const [saveCardDetails, setSaveCardDetails] = useState(false);
 
-  const handleInputChange = (elementId, value) => {
+  const handleInputChange =async (elementId, value) => {
     // Call the getElementInfo function and do something with the result
-    const elementInfo = getElementInfo(elementId, value);
+    const elementInfo =await simpleSDK.formCapture(elementId, value);
     console.log('Element Info:', elementInfo);
   };
 

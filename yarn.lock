@@ -6502,10 +6502,10 @@ range-parser@~1.2.1:
   resolved "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-raptorx-react-native-sd@^1.0.36:
-  version "1.0.36"
-  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.36.tgz"
-  integrity sha512-McHp4NZj6PAn4SM7KhYdQgA2joM/HS2LTrbBicFLMN6UHuD0fNmIlpFdz9o6HYjrM4MUU9dJBAytssasNRgh1w==
+raptorx-react-native-sd@^1.0.39:
+  version "1.0.39"
+  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.39.tgz"
+  integrity sha512-Pa4xA14r0xaSTS9GVisQPQANHKEZT+9UbQCQ97wA1jOKXEnOxEMzbM0o3XUlGxUlyHVciKqoRB5+qh3W/OmSOg==
   dependencies:
     "@fingerprintjs/fingerprintjs-pro-react-native" "^3.0.1"
     "@react-native-community/geolocation" "^3.2.0"
@@ -6518,13 +6518,6 @@ raptorx-react-native-sd@^1.0.36:
     react-native-fs "^2.20.0"
     react-native-localize "^3.0.6"
     react-native-sensors "^7.3.6"
-
-"raptorXMob@file:../raptorXMob":
-  version "0.0.1"
-  resolved "file:../raptorXMob"
-  dependencies:
-    react "18.2.0"
-    react-native "0.73.6"
 
 react-devtools-core@^4.27.7:
   version "4.28.5"

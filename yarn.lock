@@ -1761,6 +1761,11 @@
   resolved "https://registry.npmjs.org/@react-native-community/geolocation/-/geolocation-3.2.1.tgz"
   integrity sha512-/+HNzuRl4UCMma7KK+KYL8k2nxAGuW+DGxqmqfpiqKBlCkCUbuFHaZZdqVD6jpsn9r/ghe583ECLmd9SV9I4Bw==
 
+"@react-native-community/netinfo@^11.3.1":
+  version "11.3.1"
+  resolved "https://registry.npmjs.org/@react-native-community/netinfo/-/netinfo-11.3.1.tgz"
+  integrity sha512-UBnJxyV0b7i9Moa97Av+HKho1ByzX0DtbJXzUQS5E3xhQs6P2D/Os0iw3ouy7joY1TVd6uIhplPbr7l1SJNaNQ==
+
 "@react-native-firebase/app@^12.7.3", "@react-native-firebase/app@12.9.3":
   version "12.9.3"
   resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-12.9.3.tgz"
@@ -6497,13 +6502,14 @@ range-parser@~1.2.1:
   resolved "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-raptorx-react-native-sd@^1.0.35:
-  version "1.0.35"
-  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.35.tgz"
-  integrity sha512-KE6QFOf6nE5nSsn89ldv4G/uFeJs4TnqZbS66uLw7UKH/nHlPdm98dwgR/auACbGAmwuCqHfLW5azBhc0sMBHQ==
+raptorx-react-native-sd@^1.0.36:
+  version "1.0.36"
+  resolved "https://registry.npmjs.org/raptorx-react-native-sd/-/raptorx-react-native-sd-1.0.36.tgz"
+  integrity sha512-McHp4NZj6PAn4SM7KhYdQgA2joM/HS2LTrbBicFLMN6UHuD0fNmIlpFdz9o6HYjrM4MUU9dJBAytssasNRgh1w==
   dependencies:
     "@fingerprintjs/fingerprintjs-pro-react-native" "^3.0.1"
     "@react-native-community/geolocation" "^3.2.0"
+    "@react-native-community/netinfo" "^11.3.1"
     "@react-navigation/native" "^6.1.17"
     axios "^1.6.8"
     crypto-js "^4.2.0"
@@ -6512,6 +6518,13 @@ raptorx-react-native-sd@^1.0.35:
     react-native-fs "^2.20.0"
     react-native-localize "^3.0.6"
     react-native-sensors "^7.3.6"
+
+"raptorXMob@file:../raptorXMob":
+  version "0.0.1"
+  resolved "file:../raptorXMob"
+  dependencies:
+    react "18.2.0"
+    react-native "0.73.6"
 
 react-devtools-core@^4.27.7:
   version "4.28.5"
@@ -6724,7 +6737,7 @@ react-native-vector-icons@^4.5.0:
     prop-types "^15.5.10"
     yargs "^8.0.2"
 
-react-native@*, "react-native@^0.0.0-0 || >=0.60 <1.0", react-native@>=0.23.1, react-native@>=0.39.0, react-native@>=0.50.0, react-native@>=0.57, react-native@>=0.66.0, react-native@>=0.70.0, react-native@0.73.6:
+react-native@*, "react-native@^0.0.0-0 || >=0.60 <1.0", react-native@>=0.23.1, react-native@>=0.39.0, react-native@>=0.50.0, react-native@>=0.57, react-native@>=0.59, react-native@>=0.66.0, react-native@>=0.70.0, react-native@0.73.6:
   version "0.73.6"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.6.tgz"
   integrity sha512-oqmZe8D2/VolIzSPZw+oUd6j/bEmeRHwsLn1xLA5wllEYsZ5zNuMsDus235ONOnCRwexqof/J3aztyQswSmiaA==

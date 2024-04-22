@@ -1,5 +1,5 @@
 
-import RaptorX from 'raptorx-react-native-sd'
+import RaptorX from 'react-native-awesome-module'
 
 import React ,{useEffect,useState}from 'react';
 import MainStack from './app/routing/MainStack';
